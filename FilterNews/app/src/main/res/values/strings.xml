@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lọc Tin Tức</string>
+    <string name="toast_saving">Saving</string>
+    <string name="toast_already_saved">This one already saved</string>
+    <string name="toast_favor">Favorite</string>
+    <string name="toast_saved_webview">Saved webview</string>
+    <string name="toast_webview">Webview</string>
+    <string name="delete">Delete</string>
+    <string name="please_wait">Please wait ...</string>
+</resources>

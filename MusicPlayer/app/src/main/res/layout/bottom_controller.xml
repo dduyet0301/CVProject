@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="info"
+            type="com.t3h.buoi15_a.model.SoundInfo" />
+
+        <variable
+            name="listener"
+            type="com.t3h.buoi15_a.views.ControllerListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#9B9B9B">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{info.name}"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:duration="@{info.position}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:duration="@{info.duration}" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/sb_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="@{info.duration}"
+            android:progress="@{info.position}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:onClick="@{v -> listener.onPrev()}"
+                android:src="@drawable/ic_skip_previous" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="@{v -> listener.onPause()}"
+                android:src="@{info.isPlaying ? @drawable/ic_pause : @drawable/ic_play_arrow}" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:onClick="@{v -> listener.onNext()}"
+                android:src="@drawable/ic_skip_next" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
